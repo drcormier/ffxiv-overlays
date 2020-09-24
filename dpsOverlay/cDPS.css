@@ -1,0 +1,59 @@
+.bar {
+    border-radius: 3px;
+    height: 20px;
+    width: 100%;
+}
+
+.barInner {
+    background-color: black;
+    z-index: 0;
+}
+
+.barSps {
+    background-color: black;
+    position: relative;
+    bottom: 20px;
+    z-index: 10;
+}
+
+.nameText {
+    position: relative;
+    bottom: 40px;
+    color: white;
+    z-index: 20;
+}
+
+.hpsText,
+.dpsText {
+    position: relative;
+    bottom: 60px;
+    color: white;
+    z-index: 30;
+    text-align: right;
+}
+
+.title,
+.hps,
+.dps {
+    width: 100%;
+    color: white;
+}
+
+.row {
+    height: 20px;
+    width: 100%;
+}
+
+.cellDps {
+    height: 20px;
+    width: 100%;
+}
+
+.options {
+    display: none;
+}
+
+canvas {
+    width: 100% !important;
+}
+

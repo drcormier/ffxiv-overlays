@@ -1,0 +1,44 @@
+<html lang="en">
+<meta charset="utf-8" />
+<!--
+<script src="https://ngld.github.io/OverlayPlugin/assets/shared/common.min.js"></script>
+-->
+<script src="https://ngld.github.io/OverlayPlugin/assets/shared/common.min.js"></script>
+<script src="cOverlay.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+<link rel="stylesheet" href="cOverlay.css">
+<body>
+	<div class="bar barOuter hp target">
+		<div class="bar barInner hp target"></div>
+		<div class="barComplete barText hp target"></div>
+	</div>
+	<div class="bar barOuter hp focus">
+		<div class="bar barInner shield focus"></div>
+		<div class="bar barInner hp focus"></div>
+		<div class="barComplete barText hp focus"></div>
+	</div>
+	<div class="bar barOuter hp self">
+		<div class="bar barInner shield self"></div>
+		<div class="bar barInner hp self"></div>
+		<div class="barComplete barText hp self"></div>
+	</div>
+	<div class="bar barOuter mp self">
+		<div class="bar barInner mp self"></div>
+		<div class="barComplete barText mp"></div>
+	</div>
+	<div class="bar barOuter cast">
+		<div class="bar barInner cast"></div>
+		<div class="barComplete barText cast"></div>
+	</div>
+	<div class="spell"></div>
+	<!--
+	<div class="bar barOuter gcd">
+		<div class="bar barInner gcd"></div>
+		<div class="barComplete barText gcd"></div>
+	</div>
+	-->
+	<pre id="encounter"></pre>
+	<pre id="job"></pre>
+	<pre id="debug"></pre>
+</body>
+</html>

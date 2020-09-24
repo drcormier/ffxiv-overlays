@@ -1,0 +1,62 @@
+.bar {
+    border-radius: 3px;
+    height: 20px;
+    width: 200px;
+    text-align: center;
+}
+.barOuter {
+    width: 100%;
+    background-color: black;
+}
+.barInner {
+    width: 0%;
+}
+.barText {
+    position: relative;
+    bottom: 20px;
+    left: 0;
+}
+.barText.hp {
+    position: relative;
+    bottom: 40px;
+    left: 0;
+    z-index: 20;
+}
+.barInner.cast {
+    background-color: darkmagenta;
+}
+.barInner.hp.self {
+    background-color: green;
+    position: relative;
+    bottom: 20px;
+    z-index: 10;
+}
+.barInner.hp.focus {
+    background-color: olive;
+    position: relative;
+    bottom: 20px;
+    z-index: 10;
+}
+.barInner.hp.target{
+    background-color: red;
+}
+.barText.hp.target {
+    bottom: 20px;
+    z-index: 20;
+}
+.barInner.mp {
+    background-color: blue;
+}
+.barInner.shield {
+    background-color: orange;
+    z-index: 5;
+}
+.barInner.gcd {
+    background-color: white;
+}
+.spell {
+    text-align: center;
+}
+* {
+    color: white;
+}
