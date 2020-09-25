@@ -4,7 +4,6 @@ let debug = false
 let updateJobDataOutOfCombat = true
 let updatePlayerDataOutOfCombat = true
 let updateBarOutOfCombat = true
-let slideCastTime = 40
 let playerID = 0
 let gcd = 250
 let currentGCDTime = 0
@@ -15,7 +14,6 @@ let castTimer = null
 const hpFormat = '0.0a'
 
 const playerStatsRE = /\[.*] 0C:Player Stats:.*:(\d+):(\d+):0:.*/
-const beginCastingRE = /\[.+?] 14:(.+?):(.+?) starts using .+/
 const updatePlayerNameRE = /\[.+?] 02:Changed primary player to (.+)\./
 
 
