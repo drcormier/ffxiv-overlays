@@ -63,7 +63,7 @@
       }
 
       // CombatData イベントを購読
-      addOverlayListener("EnmityTargetData", (e) => {
+      addOverlayListener("onPlayerChangedEvent", (e) => {
         document.querySelector("#encounter").innerText = JSON.stringify(e, null, 4);
       });
 
