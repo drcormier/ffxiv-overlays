@@ -1,16 +1,11 @@
 let playerX = 0
 let playerY = 0
-let range = 15
+let rangeInner = 15
+let rangeOuter = 30
 
 
 function coordinateDistanceToPlayer (x, y) {
   return Math.sqrt(Math.pow(x - playerX, 2) + Math.pow(y - playerY, 2))
-}
-
-function posToMap (h) {
-  let offset = 21.5
-  let pitch = 0.02
-  return h * pitch + offset
 }
 
 function comparePlayers (player1, player2) {
@@ -31,7 +26,8 @@ function combatantTimer (partyDiv) {
       let div = document.createElement('div')
       div.textContent = `${partyMember['Name']} - ${distance.toFixed(1)}y`
       div.style.color = 'red'
-      if (distance < range) div.style.color = 'green'
+      if (distance <= rangeOuter) div.style.color = 'yellow'
+      if (distance <= rangeInner) div.style.color = 'green'
       mainDiv.appendChild(div)
     }
     partyDiv.innerHTML = ''
@@ -43,22 +39,48 @@ function getPartyMembersFromCombatants (event) {
   return event.filter(e => e['PartyType'] === 1)
 }
 
-function updateRange (slider) {
+function updateRangeInner (slider) {
   try {
-    range = slider.target.value
+    rangeInner = slider.target.value
   } catch (e) { }
-  document.querySelector('.rangeText').textContent = `Range: ${range}`
+  document.querySelector(".rangeInnerText").textContent = `Range: ${rangeInner}`
+}
+function updateRangeOuter (slider) {
+  try {
+    rangeOuter = slider.target.value
+  } catch (e) { }
+  document.querySelector(".rangeOuterText").textContent = `Range: ${rangeOuter}`
+}
+
+function hideSettings(...args){
+  for (const arg of args) {
+    arg.style.display = 'none'
+  }
+}
+
+function hideButton(event){
+  const rangeInnerSlider = document.querySelector('#rangeInner')
+  const rangeOuterSlider = document.querySelector('#rangeOuter')
+  const rangeInnerText = document.querySelector(".rangeInnerText")
+  const rangeOuterText = document.querySelector(".rangeOuterText")
+  const buttonHide = document.querySelector(".buttonHide")
+  hideSettings(rangeInnerSlider, rangeOuterSlider, rangeInnerText, rangeOuterText, buttonHide)
 }
 
 window.addEventListener('DOMContentLoaded', async (_) => {
   const partyDiv = document.querySelector('.party')
-  const rangeSlider = document.querySelector('#range')
+  const rangeInnerSlider = document.querySelector('#rangeInner')
+  const rangeOuterSlider = document.querySelector('#rangeOuter')
+  const buttonHide = document.querySelector(".buttonHide")
   addOverlayListener("onPlayerChangedEvent", (e) => {
     playerX = e['detail']['pos']['x']
     playerY = e['detail']['pos']['y']
   });
-  rangeSlider.addEventListener('change', updateRange)
-  updateRange(rangeSlider)
+  rangeInnerSlider.addEventListener('change', updateRangeInner)
+  updateRangeInner(rangeInnerSlider)
+  rangeOuterSlider.addEventListener('change', updateRangeOuter)
+  updateRangeOuter(rangeOuterSlider)
+  buttonHide.addEventListener('click', hideButton)
   setInterval(combatantTimer, 100, partyDiv)
   startOverlayEvents()
 })
