@@ -8,7 +8,7 @@ let partyILVLS = {}
 function partyILVL (event) {
   for (const partyMember of event['party']) {
     let name = partyMember['name']
-    partyILVLS[name] = sendRequest('localhost:6969', { 'name': name })['ilvl']
+    partyILVLS[name] = sendRequest('http://localhost:6969', { 'name': name })['ilvl']
   }
 }
 
